@@ -1,6 +1,6 @@
 import './styles/index.css';
 
-const Card = ({ animal, addLike, removeLike, removeAnimal }) => {
+const Card = ({ animal, addLike, removeLike, removeAnimal, handleLikes }) => {
   return (
     <div className='card'>
       <div className='card-close-btn'>
@@ -14,7 +14,7 @@ const Card = ({ animal, addLike, removeLike, removeAnimal }) => {
       />
       <h2>{animal.name.charAt(0).toUpperCase() + animal.name.slice(1)}</h2>
       <div className='card-likes'>
-        <button onClick={removeLike} value={animal.name}>
+        <button onClick={handleLikes} name={animal.name} value={-1}>
           -
         </button>
         <div className='likes'>
@@ -28,7 +28,7 @@ const Card = ({ animal, addLike, removeLike, removeAnimal }) => {
             />
           )}
         </div>
-        <button onClick={addLike} value={animal.name}>
+        <button onClick={handleLikes} name={animal.name} value={+1}>
           +
         </button>
       </div>

@@ -2,22 +2,11 @@ import Card from '../Card';
 import './styles/index.css';
 
 const Animals = ({ animals, setAnimals, search }) => {
-  const addLike = (e) => {
+  const handleLikes = (e) => {
     setAnimals(
       animals.map((animal) => {
-        if (animal.name === e.target.value) {
-          return { ...animal, likes: animal.likes + 1 };
-        }
-        return animal;
-      })
-    );
-  };
-
-  const removeLike = (e) => {
-    setAnimals(
-      animals.map((animal) => {
-        if (animal.name === e.target.value) {
-          return { ...animal, likes: animal.likes - 1 };
+        if (animal.name === e.target.name) {
+          return { ...animal, likes: animal.likes + Number(e.target.value) };
         }
         return animal;
       })
@@ -25,7 +14,7 @@ const Animals = ({ animals, setAnimals, search }) => {
   };
 
   const removeAnimal = (e) => {
-    setAnimals(animals.filter((animal) => animal.name !== e.target.value));
+    setAnimals(animals.filter((animal) => animal.name !== e.target.name));
   };
 
   return (
@@ -36,7 +25,12 @@ const Animals = ({ animals, setAnimals, search }) => {
             ...animals,
             <Card
               key={animal.name}
-              {...{ animal, setAnimals, addLike, removeLike, removeAnimal }}
+              {...{
+                animal,
+                setAnimals,
+                handleLikes,
+                removeAnimal,
+              }}
             />,
           ];
         }
