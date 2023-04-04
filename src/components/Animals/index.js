@@ -14,7 +14,6 @@ const Animals = ({ animals, setAnimals, search }) => {
   };
 
   const removeAnimal = (e) => {
-    console.log(e.target.name);
     setAnimals((prevAnimals) =>
       prevAnimals.filter((animal) => animal.name !== e.target.name)
     );
