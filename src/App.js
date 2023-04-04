@@ -1,23 +1,17 @@
-import logo from './logo.svg';
+import Animals from './components/Animals';
+import Header from './components/Header';
+import { useState } from 'react';
+import { animalsData } from './data/animalsList.js';
 import './App.css';
 
 function App() {
+  const [animals, setAnimals] = useState(animalsData);
+  const [search, setSearch] = useState('');
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div className='App'>
+      <Header animals={animals} search={search} setSearch={setSearch} />
+      <Animals animals={animals} setAnimals={setAnimals} search={search} />
     </div>
   );
 }
