@@ -2,7 +2,7 @@ import { useState } from 'react';
 import './styles/index.css';
 
 const Header = ({ search, setSearch, setAnimals }) => {
-  const [animalToAdd, setAnimalToAdd] = useState({});
+  const [animalToAdd, setAnimalToAdd] = useState();
 
   const searchAnimals = (e) => {
     setSearch(e.target.value);
@@ -13,21 +13,26 @@ const Header = ({ search, setSearch, setAnimals }) => {
   };
 
   const addAnimal = () => {
-    // const newAnimals = animals.
+    setAnimals((prevAnimals) => [
+      { name: animalToAdd, likes: 0 },
+      ...prevAnimals,
+    ]);
   };
 
   return (
     <header>
       <h1>Animals App</h1>
-      <input
-        type='text'
-        value={animalToAdd}
-        onChange={handleAnimalToAddInputChange}
-        placeholder='Add an animal'
-      />
-      <button className='btn' onClick={addAnimal}>
-        Add
-      </button>
+      <div className='add-animal-area'>
+        <input
+          type='text'
+          value={animalToAdd}
+          onChange={handleAnimalToAddInputChange}
+          placeholder='Add an animal'
+        />
+        <button className='add-btn' onClick={addAnimal}>
+          Add
+        </button>
+      </div>
       <input
         type='text'
         value={search}
