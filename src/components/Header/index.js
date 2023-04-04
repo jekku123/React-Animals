@@ -19,6 +19,7 @@ const Header = ({ search, setSearch, animals, setAnimals }) => {
         ...prevAnimals,
       ]);
     }
+    setAnimalToAdd('');
   };
 
   const handleEnterSubmit = (e) => {

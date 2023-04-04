@@ -22,7 +22,7 @@ const Animals = ({ animals, setAnimals, search }) => {
   return (
     <main>
       {animals.reduce((animals, animal) => {
-        if (!search || animal.name.includes(search)) {
+        if (!search || animal.name.includes(search.toLowerCase())) {
           return [
             ...animals,
             <Card
