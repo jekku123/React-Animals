@@ -1,8 +1,8 @@
 import { useState } from 'react';
 import './styles/index.css';
 
-const Header = ({ search, setSearch, setAnimals }) => {
-  const [animalToAdd, setAnimalToAdd] = useState();
+const Header = ({ search, setSearch, animals, setAnimals }) => {
+  const [animalToAdd, setAnimalToAdd] = useState('');
 
   const searchAnimals = (e) => {
     setSearch(e.target.value);
@@ -13,10 +13,12 @@ const Header = ({ search, setSearch, setAnimals }) => {
   };
 
   const addAnimal = () => {
-    setAnimals((prevAnimals) => [
-      { name: animalToAdd, likes: 0 },
-      ...prevAnimals,
-    ]);
+    if (!animals.some((animal) => animal.name === animalToAdd)) {
+      setAnimals((prevAnimals) => [
+        { name: animalToAdd, likes: 0 },
+        ...prevAnimals,
+      ]);
+    }
   };
 
   return (

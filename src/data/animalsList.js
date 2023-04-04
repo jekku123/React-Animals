@@ -1,3 +1,5 @@
+// import { uuid } from 'uuidv4';
+
 export const animalsData = [
   { name: 'alligator', likes: 0 },
   { name: 'alpaca', likes: 0 },
