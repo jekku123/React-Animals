@@ -3,8 +3,8 @@ import './styles/index.css';
 
 const Animals = ({ animals, setAnimals, search }) => {
   const handleLikes = (e) => {
-    setAnimals(
-      animals.map((animal) => {
+    setAnimals((prevAnimals) =>
+      prevAnimals.map((animal) => {
         if (animal.name === e.target.name) {
           return { ...animal, likes: animal.likes + Number(e.target.value) };
         }
@@ -15,7 +15,9 @@ const Animals = ({ animals, setAnimals, search }) => {
 
   const removeAnimal = (e) => {
     console.log(e.target.name);
-    setAnimals(animals.filter((animal) => animal.name !== e.target.name));
+    setAnimals((prevAnimals) =>
+      prevAnimals.filter((animal) => animal.name !== e.target.name)
+    );
   };
 
   return (

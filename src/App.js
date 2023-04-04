@@ -10,7 +10,12 @@ function App() {
 
   return (
     <>
-      <Header animals={animals} search={search} setSearch={setSearch} />
+      <Header
+        animals={animals}
+        search={search}
+        setSearch={setSearch}
+        setAnimals={setAnimals}
+      />
       <Animals animals={animals} setAnimals={setAnimals} search={search} />
     </>
   );

@@ -4,7 +4,7 @@ const Card = ({ animal, removeAnimal, handleLikes }) => {
   return (
     <div className='card'>
       <div className='card-close-btn'>
-        <button onClick={removeAnimal} name={animal.name}>
+        <button className='btn-box' onClick={removeAnimal} name={animal.name}>
           x
         </button>
       </div>
@@ -15,7 +15,12 @@ const Card = ({ animal, removeAnimal, handleLikes }) => {
       <div className='card-main'>
         <h2>{animal.name.charAt(0).toUpperCase() + animal.name.slice(1)}</h2>
         <div className='card-likes-area'>
-          <button onClick={handleLikes} name={animal.name} value={-1}>
+          <button
+            className='btn-box'
+            onClick={handleLikes}
+            name={animal.name}
+            value={-1}
+          >
             -
           </button>
           <div className='likes'>
@@ -29,7 +34,12 @@ const Card = ({ animal, removeAnimal, handleLikes }) => {
             )}
             <p className='like-count'>{animal.likes}</p>
           </div>
-          <button onClick={handleLikes} name={animal.name} value={+1}>
+          <button
+            className='btn-box'
+            onClick={handleLikes}
+            name={animal.name}
+            value={+1}
+          >
             +
           </button>
         </div>
