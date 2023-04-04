@@ -44,6 +44,8 @@ export default Animals;
 
 // ASK WHICH WAY TO USE
 
+// WHY SCROLL-MARGIN-TOP NO WORK
+
 // animals.map((animal) => {
 //   if (!search || animal.name.includes(search)) {
 //     return (
