@@ -1,29 +1,5 @@
-.card-likes {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  gap: 20px;
-}
-
-.likes {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  gap: 5px;
-}
-
-.like-count {
-  font-size: 1.3em;
-}
-
-h2 {
-  font-weight: 400;
-}
-
 .card {
-  width: 200px;
   background-color: #485363;
-  margin: 10px;
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -41,4 +17,37 @@ h2 {
   position: absolute;
   top: 0;
   right: 0;
+}
+
+.card-main {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+  height: 80px;
+  padding: 10px;
+}
+
+.card-likes-area {
+  width: 130px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 20px;
+}
+
+.likes {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 5px;
+}
+
+.like-count {
+  font-size: 1.3em;
+}
+
+h2 {
+  font-weight: 400;
+  text-align: center;
 }
