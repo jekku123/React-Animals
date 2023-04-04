@@ -9,10 +9,10 @@ function App() {
   const [search, setSearch] = useState('');
 
   return (
-    <div className='App'>
+    <>
       <Header animals={animals} search={search} setSearch={setSearch} />
       <Animals animals={animals} setAnimals={setAnimals} search={search} />
-    </div>
+    </>
   );
 }
 

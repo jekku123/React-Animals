@@ -14,11 +14,12 @@ const Animals = ({ animals, setAnimals, search }) => {
   };
 
   const removeAnimal = (e) => {
+    console.log(e.target.name);
     setAnimals(animals.filter((animal) => animal.name !== e.target.name));
   };
 
   return (
-    <div className='animals'>
+    <main>
       {animals.reduce((animals, animal) => {
         if (!search || animal.name.includes(search)) {
           return [
@@ -34,7 +35,7 @@ const Animals = ({ animals, setAnimals, search }) => {
         }
         return animals;
       }, [])}
-    </div>
+    </main>
   );
 };
 

@@ -4,7 +4,7 @@ const Card = ({ animal, removeAnimal, handleLikes }) => {
   return (
     <div className='card'>
       <div className='card-close-btn'>
-        <button onClick={removeAnimal} value={animal.name}>
+        <button onClick={removeAnimal} name={animal.name}>
           x
         </button>
       </div>
