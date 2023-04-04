@@ -21,6 +21,12 @@ const Header = ({ search, setSearch, animals, setAnimals }) => {
     }
   };
 
+  const handleEnterSubmit = (e) => {
+    if (e.key === 'Enter') {
+      addAnimal();
+    }
+  };
+
   return (
     <header>
       <h1>Animals App</h1>
@@ -29,6 +35,7 @@ const Header = ({ search, setSearch, animals, setAnimals }) => {
           type='text'
           value={animalToAdd}
           onChange={handleAnimalToAddInputChange}
+          onKeyDown={handleEnterSubmit}
           placeholder='Add an animal'
         />
         <button className='add-btn' onClick={addAnimal}>
