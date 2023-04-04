@@ -3,30 +3,29 @@ import './styles/index.css';
 
 const Animals = ({ animals, setAnimals, search }) => {
   const addLike = (e) => {
-    const newAnimals = animals.map((animal) => {
-      if (animal.name === e.target.value) {
-        return { ...animal, likes: animal.likes + 1 };
-      }
-      return animal;
-    });
-    setAnimals(newAnimals);
+    setAnimals(
+      animals.map((animal) => {
+        if (animal.name === e.target.value) {
+          return { ...animal, likes: animal.likes + 1 };
+        }
+        return animal;
+      })
+    );
   };
 
   const removeLike = (e) => {
-    const newAnimals = animals.map((animal) => {
-      if (animal.name === e.target.value) {
-        return { ...animal, likes: animal.likes - 1 };
-      }
-      return animal;
-    });
-    setAnimals(newAnimals);
+    setAnimals(
+      animals.map((animal) => {
+        if (animal.name === e.target.value) {
+          return { ...animal, likes: animal.likes - 1 };
+        }
+        return animal;
+      })
+    );
   };
 
   const removeAnimal = (e) => {
-    const newAnimals = animals.filter(
-      (animal) => animal.name !== e.target.value
-    );
-    setAnimals(newAnimals);
+    setAnimals(animals.filter((animal) => animal.name !== e.target.value));
   };
 
   return (
