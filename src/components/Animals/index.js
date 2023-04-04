@@ -25,12 +25,10 @@ const Animals = ({ animals, setAnimals, search }) => {
             ...animals,
             <Card
               key={animal.name}
-              {...{
-                animal,
-                setAnimals,
-                handleLikes,
-                removeAnimal,
-              }}
+              animal={animal}
+              setAnimals={setAnimals}
+              handleLikes={handleLikes}
+              removeAnimal={removeAnimal}
             />,
           ];
         }
