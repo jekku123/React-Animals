@@ -23,3 +23,7 @@ input:focus {
   border: none;
   margin-left: 5px;
 }
+
+.add-btn:hover {
+  background-color: antiquewhite;
+}
