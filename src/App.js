@@ -12,16 +12,20 @@ const App = () => {
   const [searchInput, searchHandler] = useInput('');
 
   const addAnimal = () => {
-    handleAnimals({ type: 'ADD', payload: addAnimalInput });
+    handleAnimals({ type: 'ADD', payload: { name: addAnimalInput } });
     clearAddAnimalInput();
   };
 
-  const removeAnimal = (e) => {
-    handleAnimals({ type: 'REMOVE', payload: e.target.name });
+  const removeAnimal = ({ target }) => {
+    handleAnimals({ type: 'REMOVE', payload: { name: target.name } });
   };
 
-  const handleLikes = (e) => {
-    handleAnimals({ type: 'HANDLE_LIKES', payload: e.target });
+  const handleLikes = ({ target }) => {
+    const { name, value } = target;
+    handleAnimals({
+      type: 'HANDLE_LIKES',
+      payload: { name, value },
+    });
   };
 
   return (
