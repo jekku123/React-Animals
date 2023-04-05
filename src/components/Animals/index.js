@@ -14,21 +14,21 @@ const Animals = ({ animals, setAnimals, search }) => {
   };
 
   const removeAnimal = (e) => {
-    setAnimals((prevAnimals) =>
-      prevAnimals.filter((animal) => animal.name !== e.target.name)
+    const newAnimals = animals.filter(
+      (animal) => animal.name !== e.target.name
     );
+    setAnimals(newAnimals);
   };
 
   return (
     <main>
       {animals.reduce((animals, animal) => {
-        if (!search || animal.name.includes(search.toLowerCase())) {
+        if (animal.name.includes(search.toLowerCase())) {
           return [
             ...animals,
             <Card
               key={animal.name}
               animal={animal}
-              setAnimals={setAnimals}
               handleLikes={handleLikes}
               removeAnimal={removeAnimal}
             />,
@@ -41,38 +41,3 @@ const Animals = ({ animals, setAnimals, search }) => {
 };
 
 export default Animals;
-
-// ASK WHICH WAY TO USE
-
-// WHY SCROLL-MARGIN-TOP NO WORK
-
-// animals.map((animal) => {
-//   if (!search || animal.name.includes(search)) {
-//     return (
-//       <Card
-//         key={animal.name}
-//         animal={animal}
-//         setAnimals={setAnimals}
-//         addLike={addLike}
-//         removeLike={removeLike}
-//         removeAnimal={removeAnimal}
-//       />
-//     );
-//   }
-//   return '';
-// })
-
-// animals
-// .filter((animal) => animal.name.includes(search))
-// .map((animal) => (
-// if (animal.name.includes(search)) {
-//   <Card
-//     key={animal.name}
-//     animal={animal}
-//     setAnimals={setAnimals}
-//     addLike={addLike}
-//     removeLike={removeLike}
-//     removeAnimal={removeAnimal}
-//   />
-// ))
-// }

@@ -1,5 +1,6 @@
 import { useState } from 'react';
 import './styles/index.css';
+import Search from '../Search';
 
 const Header = ({ search, setSearch, animals, setAnimals }) => {
   const [animalToAdd, setAnimalToAdd] = useState('');
@@ -13,11 +14,13 @@ const Header = ({ search, setSearch, animals, setAnimals }) => {
   };
 
   const addAnimal = () => {
-    if (!animals.some((animal) => animal.name === animalToAdd)) {
-      setAnimals((prevAnimals) => [
-        { name: animalToAdd, likes: 0 },
-        ...prevAnimals,
-      ]);
+    if (animalToAdd.length > 0) {
+      if (!animals.some((animal) => animal.name === animalToAdd)) {
+        setAnimals((prevAnimals) => [
+          { name: animalToAdd, likes: 0 },
+          ...prevAnimals,
+        ]);
+      }
     }
     setAnimalToAdd('');
   };
@@ -43,10 +46,9 @@ const Header = ({ search, setSearch, animals, setAnimals }) => {
           Add
         </button>
       </div>
-      <input
-        type='text'
-        value={search}
-        onChange={searchAnimals}
+      <Search
+        search={search}
+        searchAnimals={searchAnimals}
         placeholder='Search for an animal'
       />
     </header>

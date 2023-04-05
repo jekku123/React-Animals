@@ -19,8 +19,8 @@
 
 .card-close-btn {
   position: absolute;
-  top: 0;
-  right: 0;
+  top: 0px;
+  right: 0px;
 }
 
 .card-main {
