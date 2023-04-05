@@ -1,5 +1,6 @@
 export const animalsReducer = (state, action) => {
   const { name, value } = action.payload;
+
   switch (action.type) {
     case 'ADD':
       if (name.length > 0) {

@@ -8,6 +8,7 @@ import { animalsReducer } from './context/animalsReducer';
 
 const App = () => {
   const [animals, handleAnimals] = useReducer(animalsReducer, initAnimals);
+
   const [addAnimalInput, addAnimalHandler, clearAddAnimalInput] = useInput('');
   const [searchInput, searchHandler] = useInput('');
 
@@ -17,7 +18,8 @@ const App = () => {
   };
 
   const removeAnimal = ({ target }) => {
-    handleAnimals({ type: 'REMOVE', payload: { name: target.name } });
+    const animalToRemove = target.name;
+    handleAnimals({ type: 'REMOVE', payload: { name: animalToRemove } });
   };
 
   const handleLikes = ({ target }) => {
