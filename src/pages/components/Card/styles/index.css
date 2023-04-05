@@ -1,0 +1,33 @@
+.card {
+  background-color: #485363;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+  border-radius: 5px;
+}
+
+.card:hover {
+  box-shadow: 0 0 10px #139eca;
+}
+
+.remove-btn {
+  background-color: #f6f7f9;
+  width: 25px;
+  height: 25px;
+  position: absolute;
+  top: 0px;
+  right: 0px;
+}
+
+img {
+  width: 200px;
+  border-radius: 5px;
+}
+
+h3 {
+  font-weight: 400;
+  text-align: center;
+  text-transform: capitalize;
+}

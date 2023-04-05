@@ -1,65 +1,45 @@
-import Animals from './components/Animals';
-import Header from './components/Header';
-import { useState } from 'react';
-import { animalsData } from './data/animalsList.js';
 import './App.css';
+import Header from './ui/Header';
+import Animals from './pages/Animals';
+import { useReducer } from 'react';
+import { useInput } from './hooks/useInput';
+import { animalsData as initAnimals } from './context/animalsList.js';
+import { animalsReducer } from './context/animalsReducer';
 
-function App() {
-  const [animals, setAnimals] = useState(animalsData);
-  const [search, setSearch] = useState('');
-  const [animalToAdd, setAnimalToAdd] = useState('');
-
-  const handleAddInput = (e) => {
-    setAnimalToAdd(e.target.value);
-  };
+const App = () => {
+  const [animals, handleAnimals] = useReducer(animalsReducer, initAnimals);
+  const [addAnimalInput, addAnimalHandler, clearAddAnimalInput] = useInput('');
+  const [searchInput, searchHandler] = useInput('');
 
   const addAnimal = () => {
-    if (animalToAdd.length > 0) {
-      if (!animals.some((animal) => animal.name === animalToAdd)) {
-        setAnimals((prevAnimals) => [
-          { name: animalToAdd, likes: 0 },
-          ...prevAnimals,
-        ]);
-      }
-    }
-    setAnimalToAdd('');
-  };
-
-  const searchAnimals = (e) => {
-    setSearch(e.target.value);
-  };
-
-  const handleLikes = (e) => {
-    setAnimals((prevAnimals) =>
-      prevAnimals.map((animal) => {
-        if (animal.name === e.target.name) {
-          return { ...animal, likes: animal.likes + Number(e.target.value) };
-        }
-        return animal;
-      })
-    );
+    handleAnimals({ type: 'ADD', payload: addAnimalInput });
+    clearAddAnimalInput();
   };
 
   const removeAnimal = (e) => {
-    setAnimals(animals.filter((animal) => animal.name !== e.target.name));
+    handleAnimals({ type: 'REMOVE', payload: e.target.name });
+  };
+
+  const handleLikes = (e) => {
+    handleAnimals({ type: 'HANDLE_LIKES', payload: e.target });
   };
 
   return (
     <>
       <Header
-        animalToAdd={animalToAdd}
-        searchAnimals={searchAnimals}
+        addAnimalInput={addAnimalInput}
+        searchHandler={searchHandler}
         addAnimal={addAnimal}
-        handleAddInput={handleAddInput}
+        addAnimalInputHandler={addAnimalHandler}
       />
       <Animals
         animals={animals}
-        search={search}
+        searchInput={searchInput}
         handleLikes={handleLikes}
         removeAnimal={removeAnimal}
       />
     </>
   );
-}
+};
 
 export default App;

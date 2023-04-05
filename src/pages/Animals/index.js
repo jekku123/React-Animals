@@ -1,11 +1,11 @@
-import Card from '../Card';
+import Card from '../components/Card';
 import './styles/index.css';
 
-const Animals = ({ animals, search, handleLikes, removeAnimal }) => {
+const Animals = ({ animals, searchInput, handleLikes, removeAnimal }) => {
   return (
     <main>
       {animals.reduce((animals, animal) => {
-        if (animal.name.includes(search.toLowerCase())) {
+        if (animal.name.includes(searchInput.toLowerCase())) {
           return [
             ...animals,
             <Card

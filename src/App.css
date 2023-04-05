@@ -9,3 +9,25 @@ body {
   color: white;
   background-color: #22272f;
 }
+
+.btn {
+  cursor: pointer;
+  border-radius: 5px;
+  border: none;
+}
+
+.btn:hover {
+  background-color: rgb(224, 224, 224);
+}
+
+input {
+  border-radius: 5px;
+  border: none;
+  outline: none;
+  padding: 5px 10px;
+}
+
+input:hover,
+input:focus {
+  box-shadow: 0 0 10px #139eca;
+}
