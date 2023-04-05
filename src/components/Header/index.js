@@ -1,30 +1,7 @@
-import { useState } from 'react';
 import './styles/index.css';
 import Search from '../Search';
 
-const Header = ({ search, setSearch, animals, setAnimals }) => {
-  const [animalToAdd, setAnimalToAdd] = useState('');
-
-  const searchAnimals = (e) => {
-    setSearch(e.target.value);
-  };
-
-  const handleAnimalToAddInputChange = (e) => {
-    setAnimalToAdd(e.target.value);
-  };
-
-  const addAnimal = () => {
-    if (animalToAdd.length > 0) {
-      if (!animals.some((animal) => animal.name === animalToAdd)) {
-        setAnimals((prevAnimals) => [
-          { name: animalToAdd, likes: 0 },
-          ...prevAnimals,
-        ]);
-      }
-    }
-    setAnimalToAdd('');
-  };
-
+const Header = ({ animalToAdd, searchAnimals, addAnimal, handleAddInput }) => {
   const handleEnterSubmit = (e) => {
     if (e.key === 'Enter') {
       addAnimal();
@@ -38,7 +15,7 @@ const Header = ({ search, setSearch, animals, setAnimals }) => {
         <input
           type='text'
           value={animalToAdd}
-          onChange={handleAnimalToAddInputChange}
+          onChange={handleAddInput}
           onKeyDown={handleEnterSubmit}
           placeholder='Add an animal'
         />
@@ -47,7 +24,6 @@ const Header = ({ search, setSearch, animals, setAnimals }) => {
         </button>
       </div>
       <Search
-        search={search}
         searchAnimals={searchAnimals}
         placeholder='Search for an animal'
       />

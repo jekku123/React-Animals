@@ -51,9 +51,10 @@
   font-size: 1.3em;
 }
 
-h2 {
+h3 {
   font-weight: 400;
   text-align: center;
+  text-transform: capitalize;
 }
 
 .btn-box {

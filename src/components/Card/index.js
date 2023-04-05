@@ -13,7 +13,7 @@ const Card = ({ animal, removeAnimal, handleLikes }) => {
         alt={animal.name}
       />
       <div className='card-main'>
-        <h2>{animal.name.charAt(0).toUpperCase() + animal.name.slice(1)}</h2>
+        <h3>{animal.name}</h3>
         <div className='card-likes-area'>
           <button
             className='btn-box'

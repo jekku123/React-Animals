@@ -1,13 +1,8 @@
 import React from 'react';
 
-const Search = ({ search, searchAnimals, placeholder }) => {
+const Search = ({ searchAnimals, placeholder }) => {
   return (
-    <input
-      type='text'
-      value={search}
-      onChange={searchAnimals}
-      placeholder={placeholder}
-    />
+    <input type='text' onChange={searchAnimals} placeholder={placeholder} />
   );
 };
 
