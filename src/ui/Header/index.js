@@ -2,22 +2,11 @@ import './styles/index.css';
 import SearchBar from '../SearchBar';
 import AddBar from '../AddBar';
 
-const Header = ({
-  searchHandler,
-  addAnimal,
-  addAnimalInput,
-  addAnimalInputHandler,
-}) => {
+const Header = ({ searchHandler, handleAnimals }) => {
   return (
     <header>
       <h1>Animals App</h1>
-      <AddBar
-        inputHandler={addAnimalInputHandler}
-        placeholder={'Add an animal'}
-        addAnimal={addAnimal}
-        text={'Add'}
-        value={addAnimalInput}
-      />
+      <AddBar placeholder={'Add an animal'} handleAnimals={handleAnimals} />
       <SearchBar handler={searchHandler} placeholder='Search for an animal' />
     </header>
   );

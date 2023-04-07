@@ -11,13 +11,11 @@
   align-items: center;
 }
 
-.likes {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  gap: 5px;
+.like-count {
+  margin-left: 5px;
+  font-size: 1.3em;
 }
 
-.like-count {
-  font-size: 1.3em;
+i {
+  margin-right: 5px;
 }

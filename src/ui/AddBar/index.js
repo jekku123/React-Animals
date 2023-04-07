@@ -1,22 +1,24 @@
 import React from 'react';
+import { useInput } from '../../hooks/useInput';
 
-const AddBar = ({ inputHandler, placeholder, addAnimal, text, value }) => {
-  const handleEnter = (e) => {
-    if (e.key === 'Enter') {
-      addAnimal();
-    }
+const AddBar = ({ placeholder, handleAnimals }) => {
+  const [addAnimalInput, addAnimalHandler, clearAddAnimalInput] = useInput('');
+
+  const addAnimal = () => {
+    handleAnimals({ type: 'ADD', payload: { name: addAnimalInput } });
+    clearAddAnimalInput();
   };
 
   return (
     <div className='add-animal-area'>
       <input
-        onChange={inputHandler}
-        onKeyDown={handleEnter}
+        onChange={addAnimalHandler}
+        onKeyDown={(e) => e.key === 'Enter' && addAnimal()}
         placeholder={placeholder}
-        value={value}
+        value={addAnimalInput}
       />
       <button className='btn add-btn' onClick={addAnimal}>
-        {text}
+        Add
       </button>
     </div>
   );

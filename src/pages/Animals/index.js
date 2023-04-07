@@ -1,7 +1,7 @@
-import Card from '../components/Card';
+import Card from '../features/Card';
 import './styles/index.css';
 
-const Animals = ({ animals, searchInput, handleLikes, removeAnimal }) => {
+const Animals = ({ animals, searchInput, handleAnimals }) => {
   return (
     <main>
       {animals.reduce((animals, animal) => {
@@ -11,8 +11,7 @@ const Animals = ({ animals, searchInput, handleLikes, removeAnimal }) => {
             <Card
               key={animal.name}
               animal={animal}
-              handleLikes={handleLikes}
-              removeAnimal={removeAnimal}
+              handleAnimals={handleAnimals}
             />,
           ];
         }
