@@ -2,16 +2,16 @@ import { createContext, useContext, useReducer } from 'react';
 import { animalsReducer } from './animalsReducer';
 import { animalsData as initAnimals } from '../context/animalsList';
 
-export const AnimalContext = createContext(null);
-export const AnimalDispatchContext = createContext(null);
+const AnimalContext = createContext(null);
+const AnimalDispatchContext = createContext(null);
 
-export function useAnimals() {
+export const useAnimals = () => {
   return useContext(AnimalContext);
-}
+};
 
-export function useAnimalsHandler() {
+export const useAnimalsHandler = () => {
   return useContext(AnimalDispatchContext);
-}
+};
 
 export const AnimalProvider = ({ children }) => {
   const [animals, handleAnimals] = useReducer(animalsReducer, initAnimals);
