@@ -1,8 +1,11 @@
 import './styles/index.css';
 import LikeButton from '../components/LikeButton';
 import LikeCount from '../components/LikeCount';
+import { useAnimalsHandler } from '../../../context/AnimalContext';
 
-const Card = ({ animal, handleAnimals }) => {
+const Card = ({ animal }) => {
+  const handleAnimals = useAnimalsHandler();
+
   return (
     <div className='card'>
       <button

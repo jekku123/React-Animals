@@ -1,8 +1,10 @@
 import React from 'react';
 import { useInput } from '../../hooks/useInput';
+import { useAnimalsHandler } from '../../context/AnimalContext';
 
-const AddBar = ({ placeholder, handleAnimals }) => {
+const AddBar = ({ placeholder }) => {
   const [addAnimalInput, addAnimalHandler, clearAddAnimalInput] = useInput('');
+  const handleAnimals = useAnimalsHandler();
 
   const addAnimal = () => {
     handleAnimals({ type: 'ADD', payload: { name: addAnimalInput } });
