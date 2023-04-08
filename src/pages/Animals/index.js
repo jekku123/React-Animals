@@ -1,18 +1,13 @@
-import Card from '../features/Card';
-import { useAnimals } from '../../context/AnimalContext';
-import './styles/index.css';
+import { animalsData } from '../../context/animalsList';
+import { useCards } from '../../hooks/useCards';
+import Cards from '../../components/Cards';
 
-const Animals = ({ searchInput }) => {
-  const animals = useAnimals();
+const Animals = () => {
+  const [animals, handleAnimals] = useCards(animalsData);
   return (
-    <main>
-      {animals.reduce((animals, animal) => {
-        if (animal.name.includes(searchInput.toLowerCase())) {
-          return [...animals, <Card key={animal.name} animal={animal} />];
-        }
-        return animals;
-      }, [])}
-    </main>
+    <>
+      <Cards data={animals} handleData={handleAnimals} />
+    </>
   );
 };
 

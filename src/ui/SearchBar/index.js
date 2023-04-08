@@ -1,7 +1,9 @@
-import React from 'react';
+import { useSearchHandler } from '../../context/SearchContext';
 
-const SearchBar = ({ handler, placeholder }) => {
-  return <input onChange={handler} placeholder={placeholder} />;
+const SearchBar = () => {
+  const searchHandler = useSearchHandler();
+
+  return <input onChange={searchHandler} placeholder='Search..' />;
 };
 
 export default SearchBar;

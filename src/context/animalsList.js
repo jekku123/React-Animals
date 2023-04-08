@@ -122,7 +122,7 @@ export const animalsData = [
   { name: 'zebra', likes: 0 },
 ];
 
-export const birds = [
+export const birdsData = [
   { name: 'Crow', likes: 0 },
   { name: 'Peacock', likes: 0 },
   { name: 'Dove', likes: 0 },

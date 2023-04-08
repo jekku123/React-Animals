@@ -1,17 +1,28 @@
 import './App.css';
-import Header from './ui/Header';
-import Animals from './pages/Animals';
-import { useInput } from './hooks/useInput';
+import { RouterProvider } from 'react-router-dom';
+import { SearchContextProvider } from './context/SearchContext';
+import { router } from './router/routes';
 
 const App = () => {
-  const [searchInput, searchHandler] = useInput('');
-
   return (
     <>
-      <Header searchHandler={searchHandler} />
-      <Animals searchInput={searchInput} />
+      <SearchContextProvider>
+        <RouterProvider router={router} />
+      </SearchContextProvider>
     </>
   );
 };
 
 export default App;
+
+// Simple way
+/* 
+    <BrowserRouter>
+      <Header />
+      <Routes>
+        <Route path='/' element={<About />} />
+        <Route path='/animals' element={<Animals />} />
+        <Route path='/birds' element={<Birds />} />
+      </Routes>
+    </BrowserRouter> 
+*/

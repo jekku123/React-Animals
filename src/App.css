@@ -10,6 +10,12 @@ body {
   background-color: #22272f;
 }
 
+main {
+  display: flex;
+  justify-content: center;
+  padding: 90px 20px;
+}
+
 .btn {
   cursor: pointer;
   border-radius: 5px;

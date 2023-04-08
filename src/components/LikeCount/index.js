@@ -1,21 +1,24 @@
 import React, { useEffect, useRef, useState } from 'react';
 
-const LikeCount = ({ animal }) => {
+const LikeCount = ({ likes }) => {
   const [isClicked, setIsClicked] = useState(false);
 
   const intervalId = useRef(0);
 
   useEffect(() => {
-    clearInterval(intervalId.current);
     setIsClicked(true);
     intervalId.current = setTimeout(() => {
       setIsClicked(false);
     }, 1000);
-  }, [animal.likes]);
+
+    return () => {
+      clearInterval(intervalId.current);
+    };
+  }, [likes]);
 
   return (
     <div className='likes'>
-      {animal.likes >= 0 ? (
+      {likes >= 0 ? (
         <p className='like-count'>
           <i
             className={
@@ -23,7 +26,7 @@ const LikeCount = ({ animal }) => {
             }
             style={{ color: '#ff0000' }}
           />
-          {animal.likes}
+          {likes}
         </p>
       ) : (
         <p className='like-count'>
@@ -35,7 +38,7 @@ const LikeCount = ({ animal }) => {
             }
             style={{ color: '#ff0000' }}
           />
-          {animal.likes}
+          {likes}
         </p>
       )}
     </div>
