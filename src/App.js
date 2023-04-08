@@ -14,15 +14,3 @@ const App = () => {
 };
 
 export default App;
-
-// Simple way
-/* 
-    <BrowserRouter>
-      <Header />
-      <Routes>
-        <Route path='/' element={<About />} />
-        <Route path='/animals' element={<Animals />} />
-        <Route path='/birds' element={<Birds />} />
-      </Routes>
-    </BrowserRouter> 
-*/
