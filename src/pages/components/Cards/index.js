@@ -1,6 +1,6 @@
 import './styles/index.css';
 import Card from '../Card';
-import { useSearch } from '../../context/SearchContext';
+import { useSearch } from '../../../context/SearchContext';
 
 const Cards = ({ cards, handleCards }) => {
   const search = useSearch();

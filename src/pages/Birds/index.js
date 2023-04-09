@@ -1,6 +1,6 @@
 import { birdsData } from '../../data/animalsList';
 import { useCards } from '../../hooks/useCards';
-import Cards from '../../components/Cards';
+import Cards from '../components/Cards';
 
 const Birds = () => {
   const [birds, handleBirds] = useCards(birdsData);
