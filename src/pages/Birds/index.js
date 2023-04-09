@@ -6,9 +6,9 @@ const Birds = () => {
   const [birds, handleBirds] = useCards(birdsData);
 
   return (
-    <>
+    <main>
       <Cards data={birds} handleData={handleBirds} />
-    </>
+    </main>
   );
 };
 

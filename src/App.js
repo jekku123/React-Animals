@@ -1,28 +1,26 @@
 import './App.css';
-import { RouterProvider } from 'react-router-dom';
+import Header from './ui/Header';
+import About from './pages/About';
+import Animals from './pages/Animals';
+import Birds from './pages/Birds';
+import { BrowserRouter, Route, Routes } from 'react-router-dom';
 import { SearchContextProvider } from './context/SearchContext';
-import { router } from './router/routes';
 
 const App = () => {
   return (
     <>
       <SearchContextProvider>
-        <RouterProvider router={router} />
+        <BrowserRouter>
+          <Header />
+          <Routes>
+            <Route path='/' element={<About />} />
+            <Route path='/animals' element={<Animals />} />
+            <Route path='/birds' element={<Birds />} />
+          </Routes>
+        </BrowserRouter>
       </SearchContextProvider>
     </>
   );
 };
 
 export default App;
-
-// Simple way for routes :D
-/* 
-    <BrowserRouter>
-      <Header />
-      <Routes>
-        <Route path='/' element={<About />} />
-        <Route path='/animals' element={<Animals />} />
-        <Route path='/birds' element={<Birds />} />
-      </Routes>
-    </BrowserRouter> 
-*/

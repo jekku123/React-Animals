@@ -20,7 +20,7 @@ const Card = ({ data, handleData }) => {
   };
 
   return (
-    <div className='card' key={data.name}>
+    <div className='card'>
       <RemoveButton name={data.name} handler={removeHandler} />
       <CardImage data={data.name} />
       <h3>{data.name}</h3>

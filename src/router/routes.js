@@ -13,9 +13,7 @@ const Root = () => {
   return (
     <>
       <Header />
-      <main>
-        <Outlet />
-      </main>
+      <Outlet />
     </>
   );
 };
@@ -29,3 +27,28 @@ export const router = createBrowserRouter(
     </Route>
   )
 );
+
+/* <RouterProvider router={router} /> */
+
+// USING OBJECTS
+
+// export const router2 = createBrowserRouter([
+//   {
+//     path: '/',
+//     element: <Root />,
+//     children: [
+//       {
+//         path: '/',
+//         element: <About />,
+//       },
+//       {
+//         path: '/animals',
+//         element: <Animals />,
+//       },
+//       {
+//         path: '/birds',
+//         element: <Birds />,
+//       },
+//     ],
+//   },
+// ]);
