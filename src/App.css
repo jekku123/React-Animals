@@ -13,7 +13,7 @@ body {
 main {
   display: flex;
   justify-content: center;
-  padding: 90px 20px;
+  padding: 85px 20px;
 }
 
 .btn {
@@ -24,16 +24,4 @@ main {
 
 .btn:hover {
   background-color: rgb(224, 224, 224);
-}
-
-input {
-  border-radius: 5px;
-  border: none;
-  outline: none;
-  padding: 5px 10px;
-}
-
-input:hover,
-input:focus {
-  box-shadow: 0 0 10px #139eca;
 }

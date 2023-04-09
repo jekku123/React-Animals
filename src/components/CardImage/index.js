@@ -1,6 +1,7 @@
 import { useState } from 'react';
+import './styles/index.css';
 
-const CardImage = ({ data }) => {
+const CardImage = ({ name }) => {
   const [isLoading, setIsLoading] = useState(true);
 
   const handleLoading = () => {
@@ -15,8 +16,8 @@ const CardImage = ({ data }) => {
         <span className='loader'></span>
       </div>
       <img
-        src={`https://source.unsplash.com/500x400/?${data}`}
-        alt={data}
+        src={`https://source.unsplash.com/500x400/?${name}`}
+        alt={name}
         onLoad={handleLoading}
         style={isLoading ? { display: 'none' } : { display: 'block' }}
       />

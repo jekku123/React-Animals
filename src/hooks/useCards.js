@@ -1,8 +1,8 @@
 import { useReducer } from 'react';
-import { animalsReducer } from '../context/animalsReducer';
+import { cardsReducer } from '../context/cardsReducer';
 
 export const useCards = (init) => {
-  const [state, handleState] = useReducer(animalsReducer, init);
+  const [state, handleState] = useReducer(cardsReducer, init);
 
   return [state, handleState];
 };

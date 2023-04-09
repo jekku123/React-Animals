@@ -2,23 +2,24 @@ import './styles/index.css';
 import Card from '../Card';
 import { useSearch } from '../../context/SearchContext';
 
-const Cards = ({ data, handleData }) => {
+const Cards = ({ cards, handleCards }) => {
   const search = useSearch();
 
   return (
     <div className='cards'>
-      {data.reduce((prevData, creature) => {
-        if (creature.name.toLowerCase().includes(search.toLowerCase())) {
+      {cards.reduce((prevCards, card) => {
+        if (card.name.toLowerCase().includes(search.toLowerCase())) {
           return [
-            ...prevData,
+            ...prevCards,
             <Card
-              key={creature.name}
-              data={creature}
-              handleData={handleData}
+              key={card.name}
+              name={card.name}
+              likes={card.likes}
+              handleCards={handleCards}
             />,
           ];
         }
-        return prevData;
+        return prevCards;
       }, [])}
     </div>
   );

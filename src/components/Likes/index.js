@@ -1,6 +1,7 @@
 import React, { useEffect, useRef, useState } from 'react';
+import './styles/index.css';
 
-const LikeCount = ({ likes }) => {
+const Likes = ({ likes }) => {
   const [isClicked, setIsClicked] = useState(false);
 
   const intervalId = useRef(0);
@@ -45,4 +46,4 @@ const LikeCount = ({ likes }) => {
   );
 };
 
-export default LikeCount;
+export default Likes;

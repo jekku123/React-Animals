@@ -7,7 +7,6 @@ header {
   justify-content: center;
   align-items: center;
   z-index: 99;
-  padding-top: 5px;
 }
 
 .header-flex {
@@ -15,27 +14,4 @@ header {
   display: flex;
   justify-content: space-between;
   align-items: center;
-}
-
-.add-btn {
-  padding: 5px 10px;
-  border-radius: 5px;
-  border: none;
-  margin-left: 5px;
-}
-
-ul {
-  list-style: none;
-  display: flex;
-  gap: 40px;
-}
-
-a {
-  text-decoration: none;
-  color: var(--text-color);
-  transition: 0.5s ease;
-}
-
-a:hover {
-  color: rgb(194, 194, 194);
 }

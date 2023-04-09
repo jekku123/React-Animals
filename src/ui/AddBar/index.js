@@ -1,6 +1,7 @@
 import React from 'react';
 import { useInput } from '../../hooks/useInput';
 import { useAnimalsHandler } from '../../context/AnimalContext';
+import './styles/index.css';
 
 const AddBar = ({ placeholder }) => {
   const [addAnimalInput, addAnimalHandler, clearAddAnimalInput] = useInput('');

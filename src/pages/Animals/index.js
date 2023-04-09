@@ -1,4 +1,4 @@
-import { animalsData } from '../../context/animalsList';
+import { animalsData } from '../../data/animalsList';
 import { useCards } from '../../hooks/useCards';
 import Cards from '../../components/Cards';
 
@@ -7,7 +7,7 @@ const Animals = () => {
 
   return (
     <main>
-      <Cards data={animals} handleData={handleAnimals} />
+      <Cards cards={animals} handleCards={handleAnimals} />
     </main>
   );
 };

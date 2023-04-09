@@ -1,4 +1,4 @@
-export const animalsReducer = (state, action) => {
+export const cardsReducer = (state, action) => {
   const { name, value } = action.payload;
 
   switch (action.type) {
