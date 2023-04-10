@@ -9,15 +9,6 @@ import {
   createRoutesFromElements,
 } from 'react-router-dom';
 
-const Root = () => {
-  return (
-    <>
-      <Header />
-      <Outlet />
-    </>
-  );
-};
-
 export const router = createBrowserRouter(
   createRoutesFromElements(
     <Route path='/' element={<Root />}>
@@ -27,6 +18,15 @@ export const router = createBrowserRouter(
     </Route>
   )
 );
+
+const Root = () => {
+  return (
+    <>
+      <Header />
+      <Outlet />
+    </>
+  );
+};
 
 /* <RouterProvider router={router} /> */
 

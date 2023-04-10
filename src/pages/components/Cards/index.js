@@ -19,6 +19,13 @@ const Cards = ({ cards, handleCards }) => {
     });
   };
 
+  const playSound = (name) => {
+    const sound = new Audio(
+      `https://www.google.com/logos/fnbx/animal_sounds/${name}.mp3`
+    );
+    sound.play();
+  };
+
   return (
     <div className='cards'>
       {cards.reduce((prevCards, card) => {
@@ -31,6 +38,7 @@ const Cards = ({ cards, handleCards }) => {
               likes={card.likes}
               removeHandler={removeHandler}
               likesHandler={likesHandler}
+              playSound={playSound}
             />,
           ];
         }

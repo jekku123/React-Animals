@@ -1,0 +1,23 @@
+.btn {
+  cursor: pointer;
+  border-radius: 5px;
+  border: none;
+}
+
+.btn:hover {
+  background-color: rgb(224, 224, 224);
+}
+
+.like-btn {
+  background-color: #f6f7f9;
+  width: 25px;
+  height: 25px;
+}
+.remove-btn {
+  background-color: #f6f7f9;
+  width: 25px;
+  height: 25px;
+  position: absolute;
+  top: 0px;
+  right: 0px;
+}

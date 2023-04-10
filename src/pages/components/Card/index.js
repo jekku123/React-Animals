@@ -1,33 +1,20 @@
 import './styles/index.css';
 import CardImage from '../CardImage';
 import Likes from '../Likes';
+import Button from '../Button';
+import SoundIcon from '../SoundIcon';
 
-const Card = ({ name, likes, removeHandler, likesHandler }) => {
-  const playSound = (name) => {
-    const sound = new Audio(
-      `https://www.google.com/logos/fnbx/animal_sounds/${name}.mp3`
-    );
-    sound.play();
-  };
-
+const Card = ({ name, likes, removeHandler, likesHandler, playSound }) => {
   return (
     <div className='card'>
-      <button className='btn remove-btn' onClick={() => removeHandler(name)}>
-        x
-      </button>
+      <Button text='X' type='remove' handler={() => removeHandler(name)} />
       <CardImage name={name} />
-      <div className='sound-icon' onClick={() => playSound(name)}>
-        <i class='fa-solid fa-circle-play'></i>
-      </div>
+      <SoundIcon handler={() => playSound(name)} />
       <h3>{name}</h3>
       <div className='card-likes-area'>
-        <button className='btn like-btn' onClick={() => likesHandler(name, -1)}>
-          -
-        </button>
+        <Button text='-' type='like' handler={() => likesHandler(name, -1)} />
         <Likes likes={likes} />
-        <button className='btn like-btn' onClick={() => likesHandler(name, +1)}>
-          +
-        </button>
+        <Button text='+' type='like' handler={() => likesHandler(name, +1)} />
       </div>
     </div>
   );
