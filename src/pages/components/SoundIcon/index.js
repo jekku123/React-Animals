@@ -9,9 +9,9 @@ const SoundIcon = ({ name }) => {
   };
 
   return (
-    <div className='sound-icon' onClick={() => playSound(name)}>
-      <i className='fa-solid fa-circle-play'></i>
-    </div>
+    <span className='sound-icon' onClick={() => playSound(name)}>
+      <i className='fa-solid fa-file-audio'></i>
+    </span>
   );
 };
 

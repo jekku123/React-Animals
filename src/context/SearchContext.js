@@ -4,16 +4,16 @@ import { useInput } from '../hooks/useInput';
 const SearchContext = createContext(null);
 const SearchHandlerContext = createContext(null);
 
-export const useSearch = () => {
+export const useSearchContext = () => {
   return useContext(SearchContext);
 };
 
-export const useSearchHandler = () => {
+export const useSearchContextHandler = () => {
   return useContext(SearchHandlerContext);
 };
 
 export const SearchContextProvider = ({ children }) => {
-  const [searchInput, searchHandler] = useInput('');
+  const [searchInput, searchHandler] = useInput();
 
   return (
     <SearchContext.Provider value={searchInput}>

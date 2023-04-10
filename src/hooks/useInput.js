@@ -1,15 +1,18 @@
-import { useState } from 'react';
+import { useCallback, useState } from 'react';
 
-export const useInput = (value) => {
-  const [search, setSearch] = useState(value);
+export const useInput = () => {
+  const [value, setValue] = useState('');
 
-  const searchHandler = (e) => {
-    setSearch(e.target.value);
-  };
+  const inputHandler = useCallback(
+    ({ target }) => {
+      setValue(target.value);
+    },
+    [setValue]
+  );
 
   const clearInput = () => {
-    setSearch('');
+    setValue('');
   };
 
-  return [search, searchHandler, clearInput];
+  return [value, inputHandler, clearInput];
 };

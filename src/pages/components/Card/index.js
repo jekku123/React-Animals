@@ -9,8 +9,9 @@ const Card = ({ name, likes, removeCard, handleLikes }) => {
     <div className='card'>
       <Button text='X' type='remove' handler={() => removeCard(name)} />
       <CardImage name={name} />
-      <SoundIcon name={name} />
-      <h3>{name}</h3>
+      <h3>
+        {name} <SoundIcon name={name} />
+      </h3>
       <div className='card-likes-area'>
         <Button text='-' type='like' handler={() => handleLikes(name, -1)} />
         <Likes likes={likes} />

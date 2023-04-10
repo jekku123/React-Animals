@@ -1,9 +1,9 @@
 import './styles/index.css';
 import Card from '../Card';
-import { useSearch } from '../../../context/SearchContext';
+import { useSearchContext } from '../../../context/SearchContext';
 
 const Cards = ({ cards, removeCard, handleLikes }) => {
-  const search = useSearch();
+  const search = useSearchContext();
 
   return (
     <div className='cards'>

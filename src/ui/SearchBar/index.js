@@ -1,8 +1,8 @@
-import { useSearchHandler } from '../../context/SearchContext';
+import { useSearchContextHandler } from '../../context/SearchContext';
 import './styles/index.css';
 
 const SearchBar = () => {
-  const searchHandler = useSearchHandler();
+  const searchHandler = useSearchContextHandler();
 
   return <input onChange={searchHandler} placeholder='Search..' />;
 };

@@ -28,8 +28,5 @@ h3 {
   align-items: center;
 }
 
-.sound-icon {
-  position: absolute;
-  left: 0px;
-  top: 160px;
+.sound-icon i {
 }

@@ -4,24 +4,24 @@ export const cardsReducer = (state, action) => {
   switch (action.type) {
     case 'ADD':
       if (name.length > 0) {
-        if (!state.some((animal) => animal.name === name)) {
+        if (!state.some((card) => card.name === name)) {
           return [{ name: name.toLowerCase(), likes: 0 }, ...state];
         }
       }
       return state;
 
     case 'REMOVE':
-      return state.filter((animal) => animal.name !== name);
+      return state.filter((card) => card.name !== name);
 
     case 'HANDLE_LIKES':
-      return state.map((animal) => {
-        if (animal.name === name) {
+      return state.map((card) => {
+        if (card.name === name) {
           return {
-            ...animal,
-            likes: animal.likes + Number(value),
+            ...card,
+            likes: card.likes + Number(value),
           };
         }
-        return animal;
+        return card;
       });
 
     default:
