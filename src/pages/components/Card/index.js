@@ -2,21 +2,7 @@ import './styles/index.css';
 import CardImage from '../CardImage';
 import Likes from '../Likes';
 
-const Card = ({ name, likes, handleCards }) => {
-  const removeHandler = () => {
-    handleCards({
-      type: 'REMOVE',
-      payload: { name },
-    });
-  };
-
-  const likesHandler = (value) => {
-    handleCards({
-      type: 'HANDLE_LIKES',
-      payload: { name, value },
-    });
-  };
-
+const Card = ({ name, likes, removeHandler, likesHandler }) => {
   const playSound = (name) => {
     const sound = new Audio(
       `https://www.google.com/logos/fnbx/animal_sounds/${name}.mp3`
@@ -26,7 +12,7 @@ const Card = ({ name, likes, handleCards }) => {
 
   return (
     <div className='card'>
-      <button className='btn remove-btn' onClick={removeHandler} name={name}>
+      <button className='btn remove-btn' onClick={() => removeHandler(name)}>
         x
       </button>
       <CardImage name={name} />
@@ -35,19 +21,11 @@ const Card = ({ name, likes, handleCards }) => {
       </div>
       <h3>{name}</h3>
       <div className='card-likes-area'>
-        <button
-          className='btn like-btn'
-          onClick={() => likesHandler(-1)}
-          name={name}
-        >
+        <button className='btn like-btn' onClick={() => likesHandler(name, -1)}>
           -
         </button>
         <Likes likes={likes} />
-        <button
-          className='btn like-btn'
-          onClick={() => likesHandler(+1)}
-          name={name}
-        >
+        <button className='btn like-btn' onClick={() => likesHandler(name, +1)}>
           +
         </button>
       </div>

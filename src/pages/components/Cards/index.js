@@ -5,6 +5,20 @@ import { useSearch } from '../../../context/SearchContext';
 const Cards = ({ cards, handleCards }) => {
   const search = useSearch();
 
+  const removeHandler = (name) => {
+    handleCards({
+      type: 'REMOVE',
+      payload: { name },
+    });
+  };
+
+  const likesHandler = (name, value) => {
+    handleCards({
+      type: 'HANDLE_LIKES',
+      payload: { name, value },
+    });
+  };
+
   return (
     <div className='cards'>
       {cards.reduce((prevCards, card) => {
@@ -15,7 +29,8 @@ const Cards = ({ cards, handleCards }) => {
               key={card.name}
               name={card.name}
               likes={card.likes}
-              handleCards={handleCards}
+              removeHandler={removeHandler}
+              likesHandler={likesHandler}
             />,
           ];
         }
