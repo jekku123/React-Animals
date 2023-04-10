@@ -4,9 +4,6 @@ import './styles/index.css';
 const CardImage = ({ name }) => {
   const [isLoading, setIsLoading] = useState(true);
 
-  const handleLoading = () => {
-    setIsLoading(false);
-  };
   return (
     <>
       <div
@@ -18,7 +15,7 @@ const CardImage = ({ name }) => {
       <img
         src={`https://source.unsplash.com/500x400/?${name}`}
         alt={name}
-        onLoad={handleLoading}
+        onLoad={() => setIsLoading(false)}
         style={isLoading ? { display: 'none' } : { display: 'block' }}
       />
     </>

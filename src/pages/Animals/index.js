@@ -3,11 +3,15 @@ import { useCards } from '../../hooks/useCards';
 import Cards from '../components/Cards';
 
 const Animals = () => {
-  const [animals, handleAnimals] = useCards(animalsData);
+  const [animals, removeCard, handleLikes] = useCards(animalsData);
 
   return (
     <main>
-      <Cards cards={animals} handleCards={handleAnimals} />
+      <Cards
+        cards={animals}
+        removeCard={removeCard}
+        handleLikes={handleLikes}
+      />
     </main>
   );
 };

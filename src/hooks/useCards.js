@@ -2,7 +2,21 @@ import { useReducer } from 'react';
 import { cardsReducer } from '../context/cardsReducer';
 
 export const useCards = (init) => {
-  const [state, handleState] = useReducer(cardsReducer, init);
+  const [cards, handleCards] = useReducer(cardsReducer, init);
 
-  return [state, handleState];
+  const removeCard = (name) => {
+    handleCards({
+      type: 'REMOVE',
+      payload: { name },
+    });
+  };
+
+  const handleLikes = (name, value) => {
+    handleCards({
+      type: 'HANDLE_LIKES',
+      payload: { name, value },
+    });
+  };
+
+  return [cards, removeCard, handleLikes];
 };
