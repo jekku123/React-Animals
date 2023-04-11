@@ -4,7 +4,7 @@ import SearchBar from '../SearchBar';
 import { useLocation } from 'react-router-dom';
 import NavBar from '../NavBar';
 
-const Header = () => {
+const Header = (props) => {
   const location = useLocation();
 
   return (
@@ -14,7 +14,7 @@ const Header = () => {
         {location.pathname !== '/' && location.pathname !== '/about' && (
           <SearchBar />
         )}
-        <NavBar />
+        <NavBar {...props} />
       </div>
       {/* <AddBar placeholder={'Add an animal'} /> */}
     </header>

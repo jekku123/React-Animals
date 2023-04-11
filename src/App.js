@@ -16,7 +16,7 @@ const App = () => {
     <>
       <SearchContextProvider>
         <BrowserRouter>
-          <Header />
+          <Header animals={animals} birds={birds} />
           <Routes>
             <Route index element={<Home />} />
             <Route

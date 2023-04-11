@@ -1,7 +1,7 @@
 import { NavLink } from 'react-router-dom';
 import './styles/index.css';
 
-const NavBar = () => {
+const NavBar = ({ animals, birds }) => {
   return (
     <nav>
       <ul>
@@ -9,10 +9,10 @@ const NavBar = () => {
           <NavLink to='/'>Home</NavLink>
         </li>
         <li>
-          <NavLink to='/animals'>Animals</NavLink>
+          <NavLink to='/animals'>Animals ({animals.length})</NavLink>
         </li>
         <li>
-          <NavLink to='/birds'>Birds</NavLink>
+          <NavLink to='/birds'>Birds ({birds.length})</NavLink>
         </li>
         <li>
           <NavLink to='/about'>About</NavLink>
