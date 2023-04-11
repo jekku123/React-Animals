@@ -11,7 +11,9 @@ const Header = () => {
     <header>
       <div className='header-flex'>
         <h1>Animals App</h1>
-        {location.pathname !== '/' && <SearchBar />}
+        {location.pathname !== '/' && location.pathname !== '/about' && (
+          <SearchBar />
+        )}
         <NavBar />
       </div>
       {/* <AddBar placeholder={'Add an animal'} /> */}

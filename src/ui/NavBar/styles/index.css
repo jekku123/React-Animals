@@ -13,3 +13,11 @@ a {
 a:hover {
   color: rgb(194, 194, 194);
 }
+
+a:active {
+  color: #139eca;
+}
+
+a:focus {
+  color: #139eca;
+}
