@@ -2,10 +2,10 @@ import './App.css';
 import Header from './ui/Header';
 import About from './pages/About';
 import Home from './pages/Home';
+import List from './pages/components/List';
 import { BrowserRouter, Route, Routes } from 'react-router-dom';
 import { SearchContextProvider } from './context/SearchContext';
 import { useCards } from './hooks/useCards';
-import List from './pages/components/List';
 import { animalsData, birdsData } from './data/animalsList';
 
 const App = () => {
