@@ -1,8 +1,8 @@
 import { createContext, useContext } from 'react';
 import { useInput } from '../hooks/useInput';
 
-const SearchContext = createContext(null);
-const SearchHandlerContext = createContext(null);
+export const SearchContext = createContext(null);
+export const SearchHandlerContext = createContext(null);
 
 export const useSearchContext = () => {
   return useContext(SearchContext);

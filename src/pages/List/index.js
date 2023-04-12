@@ -1,6 +1,6 @@
 import './styles/index.css';
 import Card from '../../components/Card';
-import { useSearchContext } from '../../context/SearchContext';
+import { useSearchContext } from '../../hooks/useSearch';
 
 const List = ({ cards, removeCard, handleLikes }) => {
   const search = useSearchContext();

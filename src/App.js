@@ -7,18 +7,10 @@ import { BrowserRouter, Route, Routes } from 'react-router-dom';
 import { SearchContextProvider } from './context/SearchContext';
 import { useCards } from './hooks/useCards';
 import { animalsData, birdsData } from './data/animalsList';
-import { useLocalStorage } from './hooks/useLocalStorage';
 
 const App = () => {
-  const [animalStorage, setAnimalStorage] = useLocalStorage(
-    'animals',
-    animalsData
-  );
-
-  const [birdStorage, setBirdStorage] = useLocalStorage('birds', birdsData);
-
-  const [animals, removeAnimal, handleAnimalLikes] = useCards(animalStorage);
-  const [birds, removeBird, handleBirdLikes] = useCards(birdStorage);
+  const [animals, removeAnimal, handleAnimalLikes] = useCards(animalsData);
+  const [birds, removeBird, handleBirdLikes] = useCards(birdsData);
 
   return (
     <>

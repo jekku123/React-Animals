@@ -1,4 +1,4 @@
-import { useSearchContextHandler } from '../../context/SearchContext';
+import { useSearchContextHandler } from '../../hooks/useSearch';
 import './styles/index.css';
 
 const SearchBar = () => {
