@@ -24,5 +24,15 @@ export const useCards = (init) => {
     [handleCards]
   );
 
-  return [cards, removeCard, handleLikes];
+  const replaceCards = useCallback(
+    (cards) => {
+      handleCards({
+        type: 'REPLACE',
+        payload: { cards },
+      });
+    },
+    [handleCards]
+  );
+
+  return [cards, removeCard, handleLikes, replaceCards];
 };

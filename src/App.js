@@ -1,5 +1,5 @@
 import './App.css';
-import Header from './ui/Header';
+import Header from './components/Header';
 import About from './pages/About';
 import Home from './pages/Home';
 import List from './pages/List';
@@ -7,10 +7,18 @@ import { BrowserRouter, Route, Routes } from 'react-router-dom';
 import { SearchContextProvider } from './context/SearchContext';
 import { useCards } from './hooks/useCards';
 import { animalsData, birdsData } from './data/animalsList';
+import { useLocalStorage } from './hooks/useLocalStorage';
 
 const App = () => {
-  const [animals, removeAnimal, handleAnimalLikes] = useCards(animalsData);
-  const [birds, removeBird, handleBirdLikes] = useCards(birdsData);
+  const [animalStorage, setAnimalStorage] = useLocalStorage(
+    'animals',
+    animalsData
+  );
+
+  const [birdStorage, setBirdStorage] = useLocalStorage('birds', birdsData);
+
+  const [animals, removeAnimal, handleAnimalLikes] = useCards(animalStorage);
+  const [birds, removeBird, handleBirdLikes] = useCards(birdStorage);
 
   return (
     <>

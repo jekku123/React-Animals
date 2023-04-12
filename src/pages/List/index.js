@@ -1,5 +1,5 @@
 import './styles/index.css';
-import Card from '../components/Card';
+import Card from '../../components/Card';
 import { useSearchContext } from '../../context/SearchContext';
 
 const List = ({ cards, removeCard, handleLikes }) => {

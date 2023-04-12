@@ -1,8 +1,8 @@
 import './styles/index.css';
-import SearchBar from '../SearchBar';
+import SearchBar from '../../ui/SearchBar';
 // import AddBar from '../AddBar';
 import { useLocation } from 'react-router-dom';
-import NavBar from '../NavBar';
+import NavBar from '../../ui/NavBar';
 
 const Header = (props) => {
   const location = useLocation();

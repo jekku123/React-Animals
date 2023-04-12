@@ -1,8 +1,8 @@
 import './styles/index.css';
-import CardImage from '../CardImage';
-import Likes from '../Likes';
-import Button from '../Button';
-import SoundIcon from '../SoundIcon';
+import CardImage from './components/CardImage';
+import Likes from './components/Likes';
+import Button from './components/Button';
+import SoundIcon from './components/SoundIcon';
 
 const Card = ({ name, likes, removeCard, handleLikes }) => {
   return (
