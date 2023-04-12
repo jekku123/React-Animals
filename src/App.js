@@ -1,3 +1,4 @@
+/* eslint-disable react-hooks/exhaustive-deps */
 import './App.css';
 import Header from './components/Header';
 import About from './pages/About';
@@ -7,10 +8,26 @@ import { BrowserRouter, Route, Routes } from 'react-router-dom';
 import { SearchContextProvider } from './context/SearchContext';
 import { useCards } from './hooks/useCards';
 import { animalsData, birdsData } from './data/animalsList';
+import { useLocalStorage } from './hooks/useLocalStorage';
+import { useEffect } from 'react';
 
 const App = () => {
-  const [animals, removeAnimal, handleAnimalLikes] = useCards(animalsData);
-  const [birds, removeBird, handleBirdLikes] = useCards(birdsData);
+  const [birdStorage, setBirdStorage] = useLocalStorage('birds', birdsData);
+  const [animalStorage, setAnimalStorage] = useLocalStorage(
+    'animals',
+    animalsData
+  );
+
+  const [animals, removeAnimal, handleAnimalLikes] = useCards(animalStorage);
+  const [birds, removeBird, handleBirdLikes] = useCards(birdStorage);
+
+  useEffect(() => {
+    setAnimalStorage(animals);
+  }, [animals]);
+
+  useEffect(() => {
+    setBirdStorage(birds);
+  }, [birds]);
 
   return (
     <>

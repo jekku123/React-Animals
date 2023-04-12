@@ -5,16 +5,11 @@ const Home = () => {
   return (
     <main>
       <div className='home-flex-container'>
-        <div className='home-flex'>
+        <div className='animals-flex'>
           <Link to='/animals'>Animals</Link>
-          <img src={`https://source.unsplash.com/500x400/?fox`} alt='fox' />
         </div>
-        <div className='home-flex'>
-          <Link to='/birds'>Birds</Link>
-          <img
-            src={`https://source.unsplash.com/500x400/?bird`}
-            alt='bird'
-          ></img>
+        <div className='birds-flex'>
+          <Link to='/birds'> Birds</Link>
         </div>
       </div>
     </main>

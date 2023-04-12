@@ -5,7 +5,6 @@ export const cardsReducer = (state, action) => {
     case 'ADD':
       if (name.length > 0) {
         if (!state.some((card) => card.name === name)) {
-          localStorage.setItem('animals', JSON.stringify(state));
           return [{ name: name.toLowerCase(), likes: 0 }, ...state];
         }
       }
@@ -24,9 +23,6 @@ export const cardsReducer = (state, action) => {
         }
         return card;
       });
-
-    case 'REPLACE':
-      return action.payload.cards;
 
     default:
       return;

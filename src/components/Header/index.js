@@ -1,8 +1,7 @@
-import './styles/index.css';
 import SearchBar from '../../ui/SearchBar';
-// import AddBar from '../AddBar';
-import { useLocation } from 'react-router-dom';
 import NavBar from '../../ui/NavBar';
+import { useLocation } from 'react-router-dom';
+import './styles/index.css';
 
 const Header = (props) => {
   const location = useLocation();
@@ -16,7 +15,6 @@ const Header = (props) => {
         )}
         <NavBar {...props} />
       </div>
-      {/* <AddBar placeholder={'Add an animal'} /> */}
     </header>
   );
 };

@@ -1,14 +1,24 @@
 .home-flex-container {
   width: 100vw;
-  height: calc(100vh - 170px);
+  height: 400px;
   display: flex;
   justify-content: center;
   gap: 40px;
+  margin-top: 40px;
 }
 
-.home-flex {
+.animals-flex {
+  width: 500px;
+  background-image: url('https://source.unsplash.com/500x400/?fox');
   display: flex;
   flex-direction: column;
   align-items: center;
-  justify-content: center;
+}
+
+.birds-flex {
+  width: 500px;
+  background-image: url('https://source.unsplash.com/500x400/?bird');
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }
