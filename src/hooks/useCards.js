@@ -24,5 +24,15 @@ export const useCards = (init) => {
     [handleCards]
   );
 
-  return [cards, removeCard, handleLikes];
+  const addCard = useCallback(
+    (name) => {
+      handleCards({
+        type: 'ADD',
+        payload: { name },
+      });
+    },
+    [handleCards]
+  );
+
+  return [cards, removeCard, handleLikes, addCard];
 };

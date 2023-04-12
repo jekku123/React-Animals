@@ -11,6 +11,23 @@ body {
 }
 
 main {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
   padding: 85px 20px;
-  gap: 20px;
+}
+
+input {
+  width: 120px;
+  border-radius: 5px;
+  border: none;
+  outline: none;
+  padding: 5px 10px;
+  font-family: inherit;
+}
+
+input:hover,
+input:focus {
+  box-shadow: 0 0 10px #139eca;
 }

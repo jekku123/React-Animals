@@ -21,8 +21,9 @@ const App = () => {
     animalsData
   );
 
-  const [animals, removeAnimal, handleAnimalLikes] = useCards(animalStorage);
-  const [birds, removeBird, handleBirdLikes] = useCards(birdStorage);
+  const [animals, removeAnimal, handleAnimalLikes, addAnimal] =
+    useCards(animalStorage);
+  const [birds, removeBird, handleBirdLikes, addBird] = useCards(birdStorage);
 
   useEffect(() => {
     setAnimalStorage(animals);
@@ -36,7 +37,13 @@ const App = () => {
     <>
       <SearchContextProvider>
         <BrowserRouter>
-          <Header animals={animals} birds={birds} />
+          <Header
+            animals={animals}
+            birds={birds}
+            addAnimal={addAnimal}
+            addBird={addBird}
+          />
+
           <Routes>
             <Route index element={<Home />} />
             <Route
