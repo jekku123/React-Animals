@@ -13,7 +13,7 @@ const CardImage = ({ name }) => {
         <span className='loader'></span>
       </div>
       <img
-        src={`https://source.unsplash.com/500x400/?${name}`}
+        src={`https://source.unsplash.com/200x160/?${name}`}
         alt={name}
         onLoad={() => setIsLoading(false)}
         style={isLoading ? { display: 'none' } : { display: 'block' }}

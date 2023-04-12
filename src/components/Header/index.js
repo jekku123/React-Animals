@@ -10,10 +10,10 @@ const Header = (props) => {
     <header>
       <div className='header-flex'>
         <h1>Animals App</h1>
+        <NavBar {...props} />
         {location.pathname !== '/' && location.pathname !== '/about' && (
           <SearchBar />
         )}
-        <NavBar {...props} />
       </div>
     </header>
   );

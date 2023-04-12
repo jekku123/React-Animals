@@ -1,14 +1,17 @@
 /* eslint-disable react-hooks/exhaustive-deps */
 import './App.css';
+import { useEffect } from 'react';
+import { BrowserRouter, Route, Routes } from 'react-router-dom';
+
 import Header from './components/Header';
 import About from './pages/About';
 import Home from './pages/Home';
 import List from './pages/List';
-import { BrowserRouter, Route, Routes } from 'react-router-dom';
-import { useEffect } from 'react';
+
 import { SearchContextProvider } from './context/SearchContext';
-import { useCards } from './hooks/useCards';
 import { useLocalStorage } from './hooks/useLocalStorage';
+import { useCards } from './hooks/useCards';
+
 import { animalsData, birdsData } from './data/animalsList';
 
 const App = () => {

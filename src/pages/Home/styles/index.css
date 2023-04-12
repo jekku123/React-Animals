@@ -1,24 +1,17 @@
-.home-flex-container {
-  width: 100vw;
-  height: 400px;
-  display: flex;
-  justify-content: center;
-  gap: 40px;
-  margin-top: 40px;
+.grid-home {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  text-align: center;
 }
 
-.animals-flex {
-  width: 500px;
-  background-image: url('https://source.unsplash.com/500x400/?fox');
-  display: flex;
-  flex-direction: column;
-  align-items: center;
+.grid-card {
+  height: calc(100vh - 130px);
 }
-
-.birds-flex {
-  width: 500px;
-  background-image: url('https://source.unsplash.com/500x400/?bird');
-  display: flex;
-  flex-direction: column;
-  align-items: center;
+.animals {
+  background: url('https://source.unsplash.com/600x500/weekly?fox') top
+    center/cover;
+}
+.birds {
+  background: url('https://source.unsplash.com/600x500/weekly?swan') top
+    center/cover;
 }
