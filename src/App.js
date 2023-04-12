@@ -5,11 +5,11 @@ import About from './pages/About';
 import Home from './pages/Home';
 import List from './pages/List';
 import { BrowserRouter, Route, Routes } from 'react-router-dom';
+import { useEffect } from 'react';
 import { SearchContextProvider } from './context/SearchContext';
 import { useCards } from './hooks/useCards';
-import { animalsData, birdsData } from './data/animalsList';
 import { useLocalStorage } from './hooks/useLocalStorage';
-import { useEffect } from 'react';
+import { animalsData, birdsData } from './data/animalsList';
 
 const App = () => {
   const [birdStorage, setBirdStorage] = useLocalStorage('birds', birdsData);
