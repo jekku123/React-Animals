@@ -7,7 +7,6 @@ import AddBar from '../../ui/AddBar';
 
 const Header = ({ animals, birds, addHandler }) => {
   const location = useLocation();
-  console.log('hi');
 
   return (
     <header>
