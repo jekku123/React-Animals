@@ -23,25 +23,28 @@ const Header = ({ animals, birds, addHandler }) => {
   );
 };
 
-// const Header = ({ animals, birds, addAnimal, addBird }) => {
-//   const location = useLocation();
+// For App function component
+/*
+const Header = ({ animals, birds, addAnimal, addBird }) => {
+  const location = useLocation();
 
-//   return (
-//     <header>
-//       <div className='header-flex'>
-//         <h1>Animals App</h1>
-//         {location.pathname !== '/' && location.pathname !== '/about' && (
-//           <>
-//             <SearchBar />
-//             <AddBar
-//               addCard={location.pathname === '/animals' ? addAnimal : addBird}
-//             />
-//           </>
-//         )}
-//         <NavBar animals={animals} birds={birds} />
-//       </div>
-//     </header>
-//   );
-// };
+  return (
+    <header>
+      <div className='header-flex'>
+        <h1>Animals App</h1>
+        {location.pathname !== '/' && location.pathname !== '/about' && (
+          <>
+            <SearchBar />
+            <AddBar
+              addCard={location.pathname === '/animals' ? addAnimal : addBird}
+            />
+          </>
+        )}
+        <NavBar animals={animals} birds={birds} />
+      </div>
+    </header>
+  );
+};
+*/
 
 export default Header;
