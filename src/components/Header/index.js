@@ -1,11 +1,13 @@
+import './styles/index.css';
+import { useLocation } from 'react-router-dom';
+
 import SearchBar from '../../ui/SearchBar';
 import NavBar from '../../ui/NavBar';
-import { useLocation } from 'react-router-dom';
-import './styles/index.css';
 import AddBar from '../../ui/AddBar';
 
 const Header = ({ animals, birds, addHandler }) => {
   const location = useLocation();
+  console.log('hi');
 
   return (
     <header>
