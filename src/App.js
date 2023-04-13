@@ -13,6 +13,7 @@ import { useLocalStorage } from './hooks/useLocalStorage';
 import { useCards } from './hooks/useCards';
 
 import { animalsData, birdsData } from './data/animalsList';
+import ScrollButton from './ui/ScrollTop';
 
 const App = () => {
   const [birdStorage, setBirdStorage] = useLocalStorage('birds', birdsData);
@@ -68,6 +69,7 @@ const App = () => {
             />
             <Route path='/about' element={<About />} />
           </Routes>
+          <ScrollButton />
         </BrowserRouter>
       </SearchContextProvider>
     </>

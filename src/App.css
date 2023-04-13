@@ -31,3 +31,18 @@ input:hover,
 input:focus {
   box-shadow: 0 0 10px #139eca;
 }
+
+.scrolltop {
+  width: 70px;
+  height: 70px;
+  background-color: #139eca;
+  position: fixed;
+  right: 20px;
+  bottom: 50px;
+  z-index: 1;
+  cursor: pointer;
+  border-radius: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}

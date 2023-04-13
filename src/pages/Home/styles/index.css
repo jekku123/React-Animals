@@ -11,10 +11,8 @@
 }
 
 .animals {
-  background: url('https://source.unsplash.com/500x400/weekly?fox') top
-    center/cover;
+  background: url('../../../assets/fox.jpeg') top center/cover;
 }
 .birds {
-  background: url('https://source.unsplash.com/500x400/weekly?swan') top
-    center/cover;
+  background: url('../../../assets/swan.jpeg') top center/cover;
 }
