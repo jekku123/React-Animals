@@ -1,6 +1,6 @@
 import { useEffect, useState } from 'react';
 
-const getData = (key, init) => {
+const getStorageItem = (key, init) => {
   const jsonItem = localStorage.getItem(key);
   const parsedItem = JSON.parse(jsonItem);
   return parsedItem || init;
@@ -8,7 +8,7 @@ const getData = (key, init) => {
 
 export const useLocalStorage = (key, init) => {
   const [state, setState] = useState(() => {
-    return getData(key, init);
+    return getStorageItem(key, init);
   });
 
   useEffect(() => {

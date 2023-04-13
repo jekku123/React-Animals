@@ -4,7 +4,7 @@ import { useLocation } from 'react-router-dom';
 import './styles/index.css';
 import AddBar from '../../ui/AddBar';
 
-const Header = ({ animals, birds, addAnimal, addBird }) => {
+const Header = ({ animals, birds, addHandler }) => {
   const location = useLocation();
 
   return (
@@ -14,9 +14,7 @@ const Header = ({ animals, birds, addAnimal, addBird }) => {
         {location.pathname !== '/' && location.pathname !== '/about' && (
           <>
             <SearchBar />
-            <AddBar
-              addCard={location.pathname === '/animals' ? addAnimal : addBird}
-            />
+            <AddBar addCard={addHandler} location={location} />
           </>
         )}
         <NavBar animals={animals} birds={birds} />
@@ -24,5 +22,26 @@ const Header = ({ animals, birds, addAnimal, addBird }) => {
     </header>
   );
 };
+
+// const Header = ({ animals, birds, addAnimal, addBird }) => {
+//   const location = useLocation();
+
+//   return (
+//     <header>
+//       <div className='header-flex'>
+//         <h1>Animals App</h1>
+//         {location.pathname !== '/' && location.pathname !== '/about' && (
+//           <>
+//             <SearchBar />
+//             <AddBar
+//               addCard={location.pathname === '/animals' ? addAnimal : addBird}
+//             />
+//           </>
+//         )}
+//         <NavBar animals={animals} birds={birds} />
+//       </div>
+//     </header>
+//   );
+// };
 
 export default Header;

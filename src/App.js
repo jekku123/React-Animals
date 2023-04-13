@@ -1,79 +1,121 @@
-/* eslint-disable react-hooks/exhaustive-deps */
 import './App.css';
-import { useEffect } from 'react';
+import { Component } from 'react';
 import { BrowserRouter, Route, Routes } from 'react-router-dom';
 
 import Header from './components/Header';
 import About from './pages/About';
 import Home from './pages/Home';
 import List from './pages/List';
-
-import { SearchContextProvider } from './context/SearchContext';
-import { useLocalStorage } from './hooks/useLocalStorage';
-import { useCards } from './hooks/useCards';
-
-import { animalsData, birdsData } from './data/animalsList';
 import ScrollButton from './ui/ScrollTop';
 
-const App = () => {
-  const [birdStorage, setBirdStorage] = useLocalStorage('birds', birdsData);
-  const [animalStorage, setAnimalStorage] = useLocalStorage(
-    'animals',
-    animalsData
-  );
+import { SearchContextProvider } from './context/SearchContext';
+import { animalsData, birdsData } from './data/animalsList';
 
-  const [animals, removeAnimal, handleAnimalLikes, addAnimal] =
-    useCards(animalStorage);
-  const [birds, removeBird, handleBirdLikes, addBird] = useCards(birdStorage);
+class App extends Component {
+  constructor(props) {
+    super(props);
+    this.state = {
+      animals: [],
+      birds: [],
+    };
+    this.removeHandler = this.removeHandler.bind(this);
+    this.likesHandler = this.likesHandler.bind(this);
+    this.addHandler = this.addHandler.bind(this);
+  }
 
-  useEffect(() => {
-    setAnimalStorage(animals);
-  }, [animals]);
+  componentDidMount() {
+    this.setState({
+      animals: JSON.parse(localStorage.getItem('animals')) || animalsData,
+      birds: JSON.parse(localStorage.getItem('birds')) || birdsData,
+    });
+  }
 
-  useEffect(() => {
-    setBirdStorage(birds);
-  }, [birds]);
+  componentDidUpdate(prevProps) {
+    if (this.state.animals !== prevProps.animals) {
+      localStorage.setItem('animals', JSON.stringify(this.state.animals));
+    }
+    if (this.state.birds !== prevProps.birds) {
+      localStorage.setItem('birds', JSON.stringify(this.state.birds));
+    }
+  }
 
-  return (
-    <>
-      <SearchContextProvider>
-        <BrowserRouter>
-          <Header
-            animals={animals}
-            birds={birds}
-            addAnimal={addAnimal}
-            addBird={addBird}
-          />
+  removeHandler(name, list) {
+    const updatedList = this.state[list].filter(
+      (animal) => animal.name !== name
+    );
+    this.setState({
+      [list]: updatedList,
+    });
+  }
 
-          <Routes>
-            <Route index element={<Home />} />
-            <Route
-              path='/animals'
-              element={
-                <List
-                  cards={animals}
-                  removeCard={removeAnimal}
-                  handleLikes={handleAnimalLikes}
-                />
-              }
+  likesHandler(name, value, list) {
+    const updatedList = this.state[list].map((card) => {
+      if (card.name === name) {
+        return {
+          ...card,
+          likes: card.likes + Number(value),
+        };
+      }
+      return card;
+    });
+
+    this.setState({
+      [list]: updatedList,
+    });
+  }
+
+  addHandler(name, list) {
+    if (name.length > 0) {
+      if (!this.state[list].some((card) => card.name === name)) {
+        this.setState({
+          [list]: [{ name: name.toLowerCase(), likes: 0 }, ...this.state[list]],
+        });
+      }
+    }
+  }
+
+  render() {
+    return (
+      <>
+        <SearchContextProvider>
+          <BrowserRouter>
+            <Header
+              animals={this.state.animals}
+              birds={this.state.birds}
+              addHandler={this.addHandler}
             />
-            <Route
-              path='/birds'
-              element={
-                <List
-                  cards={birds}
-                  removeCard={removeBird}
-                  handleLikes={handleBirdLikes}
-                />
-              }
-            />
-            <Route path='/about' element={<About />} />
-          </Routes>
-          <ScrollButton />
-        </BrowserRouter>
-      </SearchContextProvider>
-    </>
-  );
-};
+            <Routes>
+              <Route index element={<Home />} />
+              <Route
+                path='/animals'
+                element={
+                  <List
+                    title='animals'
+                    cards={this.state.animals}
+                    removeCard={this.removeHandler}
+                    handleLikes={this.likesHandler}
+                  />
+                }
+              />
+              <Route
+                path='/birds'
+                element={
+                  <List
+                    title='birds'
+                    cards={this.state.birds}
+                    removeCard={this.removeHandler}
+                    handleLikes={this.likesHandler}
+                  />
+                }
+              />
+              <Route path='/about' element={<About />} />
+            </Routes>
+            <ScrollButton />
+          </BrowserRouter>
+        </SearchContextProvider>
+      </>
+    );
+  }
+}
 
 export default App;

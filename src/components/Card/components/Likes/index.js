@@ -1,19 +1,17 @@
-import React, { useEffect, useRef, useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import './styles/index.css';
 
 const Likes = ({ likes }) => {
   const [isClicked, setIsClicked] = useState(false);
 
-  const intervalId = useRef(0);
-
   useEffect(() => {
     setIsClicked(true);
-    intervalId.current = setTimeout(() => {
+    const intervalId = setTimeout(() => {
       setIsClicked(false);
     }, 1000);
 
     return () => {
-      clearInterval(intervalId.current);
+      clearInterval(intervalId);
     };
   }, [likes]);
 
