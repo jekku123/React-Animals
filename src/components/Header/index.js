@@ -15,7 +15,10 @@ const Header = ({ animals, birds, addHandler }) => {
         {location.pathname !== '/' && location.pathname !== '/about' && (
           <>
             <SearchBar />
-            <AddBar addCard={addHandler} location={location} />
+            <AddBar
+              addCard={addHandler}
+              location={location.pathname.substring(1)}
+            />
           </>
         )}
         <NavBar animals={animals} birds={birds} />

@@ -6,11 +6,16 @@ const AddBar = ({ addCard, location }) => {
 
   return (
     <div className='addbar'>
-      <input name='add' onChange={handleInput} value={input} />
+      <input
+        name='add'
+        onChange={handleInput}
+        value={input}
+        placeholder={`Insert ${location}..`}
+      />
       <button
         className='btn add-btn'
         onClick={() => {
-          addCard(input, location.pathname.substring(1));
+          addCard(input, location);
           clearInput();
         }}
       >
