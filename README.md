@@ -1,4 +1,4 @@
-# Animals App [![Quality gate](https://sonarcloud.io/api/project_badges/quality_gate?project=jekku123_react-animals)](https://sonarcloud.io/summary/new_code?id=jekku123_react-animals) [![Code Smells](https://sonarcloud.io/api/project_badges/measure?project=jekku123_react-animals&metric=code_smells)](https://sonarcloud.io/summary/new_code?id=jekku123_react-animals)
+# Animals App [![Quality gate](https://sonarcloud.io/api/project_badges/quality_gate?project=jekku123_react-animals)](https://sonarcloud.io/summary/new_code?id=jekku123_react-animals) 
 
 Practice task for Business College Full-stack Program
 
