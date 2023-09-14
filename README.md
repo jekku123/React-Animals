@@ -1,4 +1,4 @@
-# Animals App
+# Animals App [![Quality Gate Status](https://sonarcloud.io/api/project_badges/measure?project=jekku123_react-animals&metric=alert_status)](https://sonarcloud.io/summary/new_code?id=jekku123_react-animals)
 
 Practice task for Business College Full-stack Program
 
